@@ -24,3 +24,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+/* Hardware-accelerated native scroll timelines */
+@supports (animation-timeline: scroll()) {
+  .scroll-zoom-effect {
+    animation: nativeZoom linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0vh 100vh; /* Adjust how deep down the page the zoom peaks */
+  }
+}
+
+@keyframes nativeZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.25); /* The final zoom scale limit when scrolled down */
+  }
+}
+

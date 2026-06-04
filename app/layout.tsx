@@ -14,7 +14,7 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  adjustFontFallback: true, // Prevents layout shifts during load
+  adjustFontFallback: true,
 });
 
 // Expanded Premium Global Metadata

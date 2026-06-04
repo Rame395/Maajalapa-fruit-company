@@ -133,7 +133,7 @@ export default function HomePage() {
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out hover:scale-105"
             style={{ 
-              backgroundImage: "url('/aboutus.jpg')", 
+              backgroundImage: "url('/orange.jpeg')", 
               backgroundPosition: "center 45%"
             }}
           />
@@ -234,7 +234,7 @@ export default function HomePage() {
               
                 <div className="space-y-3 flex-grow">
                   <h3 className="text-2xl font-serif font-light text-[#0b4228] tracking-tight">Service</h3>
-                  <p className="text-stone-600 font-light text-sm leading-relaxed tracking-wide">
+                  <p className="text-[#0b4228]/80 font-light text-sm md:text-base leading-relaxed tracking-wide">
                     If you are ready to place a fresh order, jump straight into a secure live chat session with our dedicated customer care desk. For investors, this institutional portal highlights our highly scalable B2B operations and corporate roadmap.
                   </p>
                 </div>

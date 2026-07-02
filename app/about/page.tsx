@@ -1,120 +1,123 @@
 // app/about/page.tsx
-"use client";
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn the story behind Maa Jalapa Fruit. We partner directly with organic farmers to deliver fresh, premium produce across Kathmandu.",
+};
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfbf7]">
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-24 md:pt-40 md:pb-32">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-          
-          {/* Hero Section */}
-          <div className="max-w-4xl space-y-6 mb-24">
-            <span className="text-xs uppercase tracking-wider text-[#0b4228] font-semibold block">
-              About Us
+      <main className="flex-grow pt-32 md:pt-40">
+        
+        {/* Editorial Hero Section */}
+        <section className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 mb-24 md:mb-32 text-center">
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <span className="text-xs uppercase tracking-widest text-emerald-800 font-bold block">
+              Our Philosophy
             </span>
-            <h1 className="text-5xl md:text-6xl font-serif font-light text-[#0b4228] tracking-tight leading-tight">
-              Fresh Fruits, <br />
-              Delivered Direct.
+            <h1 className="text-5xl md:text-7xl font-serif font-light text-[#0b4228] tracking-tight leading-tight">
+              Redefining the standard <br className="hidden md:block"/> for fresh produce.
             </h1>
-            <p className="text-stone-600 text-lg md:text-xl leading-relaxed max-w-2xl pt-4">
-              MAA JALAPA FRUIT brings you the freshest organic fruits from local farms across Kathmandu Valley, delivered straight to your doorstep the same day they're picked.
+            <p className="text-stone-600 font-light text-lg md:text-xl leading-relaxed max-w-2xl mx-auto pt-4">
+              We bypassed the traditional supply chain to bring the Kathmandu Valley the absolute freshest, peak-harvest organic fruits directly from the source.
             </p>
           </div>
+        </section>
 
-          {/* Image + Story Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-32">
-            <div className="lg:col-span-7 relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden border border-stone-200/50 shadow-sm">
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                style={{ backgroundImage: "url('/aboutus.jpg')" }}
-              />
-            </div>
-            <div className="lg:col-span-5 bg-[#faf6ee] p-8 md:p-12 rounded-3xl border border-stone-200/50 space-y-5">
-              <h3 className="text-2xl font-serif text-[#0b4228]">Our Story</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                We started MAA JALAPA FRUIT because we saw a problem: by the time fruits reached consumers through traditional markets, they'd already lost their freshness and flavor.
-              </p>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                So we built a better way. We work directly with trusted organic farmers and deliver their harvest to you within hours—no middlemen, no warehouses, just fresh fruit at its peak.
-              </p>
-            </div>
-          </div>
-
-          {/* What Sets Us Apart */}
-          <div className="border-t border-stone-200 pt-20 mb-32">
-            <h2 className="text-3xl font-serif text-[#0b4228] mb-12">What Sets Us Apart</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-              
-              {/* Feature 1 */}
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-2">
-                  <span className="text-2xl">🌱</span>
-                </div>
-                <h3 className="text-xl font-serif text-[#0b4228]">100% Organic</h3>
-                <p className="text-stone-600 text-sm leading-relaxed">
-                  Every fruit we deliver is certified organic and hand-picked from farms we personally inspect. No pesticides, no chemicals—just nature's best.
-                </p>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-2">
-                  <span className="text-2xl">⚡</span>
-                </div>
-                <h3 className="text-xl font-serif text-[#0b4228]">Same-Day Delivery</h3>
-                <p className="text-stone-600 text-sm leading-relaxed">
-                  Order in the morning, enjoy fresh fruit by evening. We partner with Pathao and InDrive to get your order to you fast, anywhere in Kathmandu Valley.
-                </p>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-2">
-                  <span className="text-2xl">💬</span>
-                </div>
-                <h3 className="text-xl font-serif text-[#0b4228]">Personal Service</h3>
-                <p className="text-stone-600 text-sm leading-relaxed">
-                  Skip the apps and forms. Order directly through WhatsApp and chat with real people who care about getting you the perfect produce.
-                </p>
-              </div>
-
+        {/* Immersive Image Spread */}
+        <section className="w-full px-4 md:px-8 mb-24 md:mb-32">
+          <div className="max-w-[1400px] mx-auto relative h-[50vh] md:h-[70vh] rounded-[40px] overflow-hidden shadow-2xl">
+            <Image 
+              src="/apples1.jpg"
+              alt="Maa Jalapa Fruit Harvest"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+            {/* Elegant overlay badge */}
+            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 bg-white/95 backdrop-blur-md px-6 py-4 rounded-2xl shadow-lg border border-stone-100">
+              <p className="text-xs uppercase tracking-widest text-[#0b4228] font-bold">Since Inception</p>
+              <p className="text-2xl font-serif text-stone-900 mt-1">100% Organic Promise</p>
             </div>
           </div>
+        </section>
 
-          {/* Our Promise Section */}
-          <div className="bg-[#0b4228] text-[#faf9f5] rounded-3xl p-8 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
-            <div className="lg:col-span-8 space-y-5 relative z-10">
-              <span className="text-xs uppercase font-semibold tracking-wider text-emerald-300">
-                Our Promise
-              </span>
-              <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight max-w-xl leading-tight">
-                Farm-fresh quality, every single time.
-              </h2>
-              <p className="text-[#faf9f5]/80 text-base max-w-xl leading-relaxed">
-                We believe everyone deserves access to fresh, healthy, organic fruits without the hassle. That's why we've made ordering simple, delivery fast, and quality guaranteed.
-              </p>
-            </div>
-            <div className="lg:col-span-4 flex justify-start lg:justify-end relative z-10">
-              <Link 
-                href="/contact"
-                className="inline-block px-8 py-4 bg-[#faf9f5] hover:bg-white text-[#0b4228] text-sm font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                Get in Touch
-              </Link>
-            </div>
+       
+        <section className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
             
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-white/[0.03] rounded-full translate-x-10 -translate-y-10 filter blur-3xl pointer-events-none" />
-          </div>
+            {/* Story Text */}
+            <div className="lg:col-span-7 space-y-8">
+              <h2 className="text-4xl md:text-5xl font-serif font-light text-[#0b4228] tracking-tight">
+                The Origin
+              </h2>
+              <div className="space-y-6 text-stone-600 font-light text-lg leading-relaxed">
+                <p>
+                  Traditional supply chains are inherently flawed. By the time premium fruit travels from the farm, through wholesalers, into warehouses, and finally to your local market, it has already lost a significant percentage of its nutritional value, crispness, and flavor profile.
+                </p>
+                <p>
+                  We recognized that consumers were paying a premium for compromised quality. Maa Jalapa Fruit was established to completely eliminate this inefficiency. 
+                </p>
+                <p>
+                  By partnering directly with trusted, certified organic farmers and leveraging hyper-local logistics networks like Pathao and InDrive, we've built a system that delivers fruit to you just hours after it was picked. No middlemen. No cold-storage deterioration. Just pure, unadulterated freshness.
+                </p>
+              </div>
+            </div>
 
-        </div>
+            {/* Impact Stats (Bento Style) */}
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="bg-[#faf6ee] p-8 rounded-3xl border border-stone-200/50 flex flex-col justify-center">
+                <span className="text-4xl font-serif text-[#0b4228] mb-2">0</span>
+                <span className="text-sm font-semibold uppercase tracking-widest text-emerald-800">Chemicals</span>
+                <p className="text-xs text-stone-500 mt-2 font-light">Strictly organic farming protocols.</p>
+              </div>
+              <div className="bg-[#0b4228] text-white p-8 rounded-3xl shadow-lg flex flex-col justify-center">
+                <span className="text-4xl font-serif mb-2">24h</span>
+                <span className="text-sm font-semibold uppercase tracking-widest text-emerald-300">Farm to Door</span>
+                <p className="text-xs text-white/70 mt-2 font-light">Rapid urban dispatch system.</p>
+              </div>
+              <div className="bg-white p-8 rounded-3xl border border-stone-200/80 sm:col-span-2 flex flex-col justify-center shadow-sm">
+                <span className="text-4xl font-serif text-[#0b4228] mb-2">Local</span>
+                <span className="text-sm font-semibold uppercase tracking-widest text-emerald-800">Community Driven</span>
+                <p className="text-sm text-stone-500 mt-2 font-light leading-relaxed">
+                  Every purchase directly supports sustainable micro-farming communities across Nepal.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Immersive CTA */}
+        <section className="border-t border-stone-200/50 bg-stone-50">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-32 text-center">
+            <h2 className="text-4xl md:text-5xl font-serif font-light text-[#0b4228] tracking-tight mb-6">
+              Experience the harvest.
+            </h2>
+            <p className="text-stone-600 font-light text-lg max-w-xl mx-auto mb-10">
+              Browse our live catalog of seasonal varieties currently clearing our quality inspection lines.
+            </p>
+            <Link 
+              href="/products"
+              className="inline-flex items-center gap-3 px-10 py-4 bg-[#0b4228] hover:bg-[#072d1a] text-white rounded-full text-sm font-medium tracking-widest uppercase transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              View Catalog
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
+          </div>
+        </section>
+
       </main>
 
       <Footer />

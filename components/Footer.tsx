@@ -3,6 +3,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,9 +19,11 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-5">
             <div className="flex items-center gap-3">
               <div className="h-12 w-12 overflow-hidden rounded-full bg-white p-1.5 border border-stone-200">
-                <img 
+                <Image 
                   src="/logo.png" 
                   alt="MAA JALAPA FRUIT" 
+                  width={48}
+                  height={48}
                   className="h-full w-full object-contain"
                 />
               </div>
@@ -61,6 +64,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/products" className="hover:text-stone-900 transition-colors">Products</Link>
+                </li>
+                <li>
+                  <Link href="/farms" className="hover:text-stone-900 transition-colors">Our Farms</Link>
+                </li>
+                <li>
+                  <Link href="/wholesale" className="hover:text-stone-900 transition-colors">Wholesale</Link>
                 </li>
                 <li>
                   <Link href="/contact" className="hover:text-stone-900 transition-colors">Contact</Link>

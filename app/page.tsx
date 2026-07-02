@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -48,64 +49,66 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen grid lg:grid-cols-2 items-stretch">
         <div className="flex flex-col">
-          <div className="pt-44 pb-24 px-8 sm:px-16 xl:px-24 flex items-center justify-center lg:justify-start flex-grow">
+          <div className="pt-44 pb-24 px-8 sm:px-16 xl:px-24 flex items-center justify-center lg:justify-start flex-grow z-10">
             <div className="max-w-xl text-center lg:text-left space-y-8">
-              <h1 className="text-5xl md:text-6xl font-serif font-light text-[#0b4228] tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-[#0b4228] tracking-tight leading-tight">
                 Freshness and
                 <br />
-                <span className="block pl-8 md:pl-16 mt-3">Quality</span>
-                <span className="block mt-3">Guaranteed</span>
+                <span className="block lg:pl-16 mt-2">Quality</span>
+                <span className="block mt-2">Guaranteed</span>
               </h1>
 
-              <p className="text-stone-600 font-light max-w-sm mx-auto lg:mx-0 text-sm tracking-wide leading-relaxed">
-                Delivering the freshest organic fruits straight to your home.
+              <p className="text-stone-600 font-light max-w-sm mx-auto lg:mx-0 text-base tracking-wide leading-relaxed">
+                Delivering the freshest organic fruits straight to your home across Kathmandu Valley.
               </p>
 
-              <div className="pt-4">
+              <div className="pt-6">
                 <Link
                   href="/contact"
-                  className="inline-block px-10 py-3.5 bg-[#1e4620] hover:bg-[#143216] text-white rounded-full text-sm font-medium tracking-wider transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center gap-3 px-10 py-4 bg-[#0b4228] hover:bg-[#072d1a] text-white rounded-full text-sm font-medium tracking-widest uppercase transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   Contact us
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </Link>
               </div>
             </div>
           </div>
 
           <div className="h-[380px] lg:h-[420px] w-full overflow-hidden border-t border-stone-200/40 relative">
-            <div 
-              className="absolute inset-0 bg-cover bg-center will-change-transform"
-              style={{ 
-                backgroundImage: "url('/hero2_image.jpeg')",
-                transform: `scale(${zoomScale})`
-              }}
+            <Image 
+              src="/hero2_image.jpeg"
+              alt="Fresh fruits assortment"
+              fill
+              priority
+              className="object-cover will-change-transform transform-gpu"
+              style={{ transform: `scale(${zoomScale})` }}
             />
           </div>
         </div>
 
         <div className="relative min-h-[550px] lg:min-h-full w-full overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center will-change-transform"
-            style={{ 
-              backgroundImage: "url('/hero1_img.jpeg')",
-              transform: `scale(${zoomScale})`
-            }}
+          <Image 
+            src="/hero1_img.jpeg"
+            alt="Organic fruit harvest"
+            fill
+            priority
+            className="object-cover will-change-transform transform-gpu"
+            style={{ transform: `scale(${zoomScale})` }}
           />
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-[#faf9f5] pt-24 pb-0">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-8 mb-20">
-          <h2 className="text-5xl md:text-6xl font-serif font-light text-[#112316] tracking-tight">
-            About
-          </h2>
-          
-          <p className="text-xs uppercase tracking-widest text-stone-500 font-medium">
+      <section id="about" className="bg-[#faf9f5] py-32 border-t border-stone-200/50">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-8 mb-24">
+          <p className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
             Our Story
           </p>
+          <h2 className="text-5xl md:text-6xl font-serif font-light text-[#112316] tracking-tight">
+            About Maa Jalapa
+          </h2>
 
-          <div className="max-w-2xl mx-auto space-y-6 text-stone-600 font-light text-sm md:text-base leading-relaxed tracking-wide">
+          <div className="max-w-2xl mx-auto space-y-6 text-stone-600 font-light text-base md:text-lg leading-relaxed tracking-wide pt-4">
             <p>
               MAA JALAPA FRUIT is dedicated to providing a wide selection of
               top-quality organic fruits, carefully curated to ensure
@@ -119,10 +122,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="pt-4">
+          <div className="pt-8">
             <Link 
               href="/about"
-              className="inline-block px-8 py-3 bg-[#1e4620] hover:bg-[#143216] text-white text-xs font-medium tracking-widest rounded-full transition-colors duration-300 shadow-sm"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-transparent border border-[#0b4228] text-[#0b4228] hover:bg-[#0b4228] hover:text-white text-xs font-medium tracking-widest uppercase rounded-full transition-all duration-300"
             >
               Learn More
             </Link>
@@ -130,159 +133,209 @@ export default function HomePage() {
         </div>
 
         <div className="w-full h-[400px] md:h-[550px] lg:h-[650px] overflow-hidden relative">
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out hover:scale-105"
-            style={{ 
-              backgroundImage: "url('/orange.jpeg')", 
-              backgroundPosition: "center 45%"
-            }}
+          <Image 
+            src="/orange.jpeg"
+            alt="Fresh oranges"
+            fill
+            className="object-cover will-change-transform transform-gpu"
+            style={{ transform: `scale(${zoomScale})` }}
           />
         </div>
       </section>
 
-     
-      <section className="py-24 md:py-14 bg-[#fcfbf7] pt-24  relative overflow-hidden">
+      {/* Why Choose Us */}
+      <section className="py-32 bg-[#fcfbf7] relative overflow-hidden border-t border-stone-200/50">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
           
-        
-          <div className="text-center max-w-xl mx-auto mb-24">
+          <div className="text-center max-w-xl mx-auto mb-20 space-y-4">
+            <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
+              Our Excellence
+            </span>
             <h2 className="text-5xl md:text-6xl font-serif font-light text-[#112316] tracking-tight">
-            Why Choose Us
-          </h2>
+              Why Choose Us
+            </h2>
           </div>
 
-        
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             
-            
-            <div className="lg:col-span-6 bg-[#faf6ee] rounded-[48px] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden border border-stone-200/40 min-h-[580px]">
-              
-             
-              <div className="relative w-full flex items-center justify-center h-72 mb-8">
-                
-                <div className="w-1/2 aspect-square rounded-[32px] overflow-hidden border border-stone-900/10 rotate-[-4deg] translate-x-4">
-                  <div 
-                    className="w-full h-full bg-cover bg-center" 
-                    style={{ backgroundImage: "url('/orange.avif')" }} 
-                  />
+            {/* Bento Card 1: Variety & Delivery */}
+            <div className="bg-[#faf6ee] rounded-[40px] p-10 md:p-14 flex flex-col justify-between relative overflow-hidden border border-stone-200/50 shadow-sm transition-shadow hover:shadow-md">
+              <div className="relative w-full h-80 mb-10">
+                <div className="absolute top-0 left-0 w-3/5 aspect-square rounded-[32px] overflow-hidden border-[6px] border-[#faf6ee] shadow-lg rotate-[-3deg] z-10">
+                  <Image src="/orange.avif" alt="Fresh orange" fill className="object-cover" />
                 </div>
-               
-                <div className="w-64 aspect-square rounded-[120px] rounded-br-[40px] overflow-hidden absolute left-1/3 shadow-md border border-stone-900/10 rotate-[6deg]">
-                  <div 
-                    className="w-full h-full bg-cover bg-center" 
-                    style={{ backgroundImage: "url('/aboutus.jpg')" }} 
-                  />
+                <div className="absolute top-12 right-0 w-3/5 aspect-square rounded-[32px] overflow-hidden border-[6px] border-[#faf6ee] shadow-lg rotate-[4deg] z-0">
+                  <Image src="/aboutus.jpg" alt="Dragon fruit" fill className="object-cover" />
                 </div>
-
                 
-                <div className="absolute bottom-4 left-12 bg-white/95 backdrop-blur-sm border border-stone-200/80 px-4 py-2.5 rounded-2xl shadow-sm flex items-center gap-3 animate-pulse">
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-[10px] font-bold text-emerald-800 tracking-wider font-sans uppercase">Pathao</span>
-                    <span className="text-[10px] font-bold text-lightgreen-700 font-sans uppercase flex items-center gap-1">
-                      <span className="w-1 h-1 bg-green-500 rounded-full inline-block"></span> InDrive
+                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md border border-stone-200 px-5 py-4 rounded-2xl shadow-xl flex items-center gap-4 z-20">
+                  <div className="flex flex-col gap-1.5">
+                    <span className="text-[10px] font-bold text-stone-800 tracking-wider uppercase flex items-center gap-2">
+                      <span className="w-2 h-2 bg-emerald-600 rounded-full"></span> Pathao
+                    </span>
+                    <span className="text-[10px] font-bold text-stone-800 tracking-wider uppercase flex items-center gap-2">
+                      <span className="w-2 h-2 bg-green-500 rounded-full"></span> InDrive
                     </span>
                   </div>
-                  <div className="w-4 h-4 bg-emerald-700 text-white rounded-full flex items-center justify-center text-[9px]">✓</div>
+                  <div className="w-8 h-8 bg-emerald-700 text-white rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
                 </div>
               </div>
 
-              
-              <div className="space-y-4 max-w-lg relative z-10">
-                <h3 className="text-3xl font-serif font-light text-[#0b4228] tracking-tight">Variety</h3>
-                <p className="text-[#0b4228]/80 font-light text-sm md:text-base leading-relaxed tracking-wide">
-                  MAA JALAPA FRUIT guarantees an agile, asset-light direct-to-consumer platform delivering premium organic fruit varieties across Kathmandu. Our curated selection changes weekly to reflect the best available seasonal availability.
+              <div className="space-y-4 max-w-lg relative z-10 mt-auto">
+                <h3 className="text-3xl font-serif font-light text-[#0b4228] tracking-tight">Agile Variety</h3>
+                <p className="text-[#0b4228]/80 font-light text-base leading-relaxed tracking-wide">
+                  MAA JALAPA FRUIT guarantees an agile, asset-light direct-to-consumer platform delivering premium organic fruit varieties across Kathmandu. Our curated selection changes weekly.
                 </p>
               </div>
             </div>
 
-        
-            <div className="lg:col-span-6 flex flex-col gap-8">
+            {/* Right Column Bento */}
+            <div className="flex flex-col gap-8">
               
-             
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch flex-grow">
-                
-             
-                <div className="bg-[#faf6ee] rounded-[48px] rounded-tl-[140px] overflow-hidden relative border border-stone-200/40 min-h-[260px]">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-90 transition-transform duration-1000 hover:scale-105" 
-                    style={{ backgroundImage: "url('/hero2_image.jpeg')" }} 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-stretch flex-grow">
+                <div className="bg-[#faf6ee] rounded-[40px] overflow-hidden relative border border-stone-200/50 shadow-sm min-h-[280px]">
+                  <Image 
+                    src="/hero2_image.jpeg" 
+                    alt="Organic grapes" 
+                    fill 
+                    className="object-cover transition-transform duration-1000 hover:scale-105 will-change-transform" 
                   />
-                
-                  <div className="absolute bottom-4 right-4 bg-white/90 border border-[#0b4228]/20 px-3 py-1.5 rounded-full text-[9px] uppercase tracking-widest text-[#0b4228] font-bold backdrop-blur-sm">
+                  <div className="absolute bottom-5 left-5 bg-white/95 border border-stone-200 px-4 py-2 rounded-full text-[10px] uppercase tracking-widest text-[#0b4228] font-bold backdrop-blur-md shadow-sm">
                     Certified Organic
                   </div>
                 </div>
 
-                
-                <div className="bg-[#faf6ee] rounded-[48px] rounded-br-[140px] overflow-hidden relative border border-stone-200/40 min-h-[260px]">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-95 transition-transform duration-1000 hover:scale-105" 
-                    style={{ backgroundImage: "url('/mangos.jpg')" }} 
+                <div className="bg-[#faf6ee] rounded-[40px] overflow-hidden relative border border-stone-200/50 shadow-sm min-h-[280px]">
+                  <Image 
+                    src="/mangos.jpg" 
+                    alt="Fresh mangos" 
+                    fill 
+                    className="object-cover transition-transform duration-1000 hover:scale-105 will-change-transform" 
                   />
                 </div>
               </div>
 
-              
-              <div className="bg-[#faf6ee]/70 rounded-[48px] p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start relative border border-stone-200/30">
+              <div className="bg-[#0b4228] rounded-[40px] p-10 flex flex-col sm:flex-row gap-8 items-start relative shadow-sm justify-center group overflow-hidden">
+                <div className="absolute inset-0 bg-[#072d1a] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                
-                <div className="flex-shrink-0 bg-white border border-stone-200/80 p-4 rounded-3xl shadow-sm flex items-center justify-center gap-3">
-                  <span className="text-xl">📞</span>
-                  <span className="text-xl text-emerald-600">💬</span>
+                <div className="flex-shrink-0 bg-white/10 p-5 rounded-2xl flex items-center justify-center relative z-10 backdrop-blur-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
 
-              
-                <div className="space-y-3 flex-grow">
-                  <h3 className="text-2xl font-serif font-light text-[#0b4228] tracking-tight">Service</h3>
-                  <p className="text-[#0b4228]/80 font-light text-sm md:text-base leading-relaxed tracking-wide">
-                    If you are ready to place a fresh order, jump straight into a secure live chat session with our dedicated customer care desk. For investors, this institutional portal highlights our highly scalable B2B operations and corporate roadmap.
+                <div className="space-y-4 flex-grow text-white relative z-10">
+                  <h3 className="text-2xl font-serif font-light tracking-tight">Direct Service</h3>
+                  <p className="text-white/80 font-light text-sm leading-relaxed tracking-wide">
+                    Ready to order? Connect straight into a secure live chat session with our customer care desk via WhatsApp for instant, personalized service.
                   </p>
                 </div>
               </div>
 
             </div>
-
           </div>
         </div>
+      </section>
 
-        
-        <div className="absolute top-1/3 left-[-10%] w-[45%] h-[45%] bg-[#faf6ee]/50 rounded-full filter blur-[120px] pointer-events-none z-0" />
-        <div className="absolute bottom-10 right-[-5%] w-[35%] h-[35%] bg-[#0b4228]/5 rounded-full filter blur-[90px] pointer-events-none z-0" />
+      {/* Testimonials */}
+      <section className="py-24 md:py-32 bg-[#0b4228] text-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 text-center">
+          <span className="text-xs uppercase tracking-widest text-emerald-300 font-semibold block mb-12">
+            Trusted by the Best
+          </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[#072d1a] p-8 rounded-[32px] text-left border border-white/10">
+              <div className="flex gap-1 mb-4 text-emerald-400">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                ))}
+              </div>
+              <p className="text-white/90 font-light leading-relaxed mb-6">
+                "The quality of organic citrus we received was unparalleled. Maa Jalapa has become our exclusive sourcing partner for all our boutique cafe locations across Kathmandu."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-serif text-lg">A</div>
+                <div>
+                  <h4 className="text-sm font-semibold tracking-wide">Aarav Sharma</h4>
+                  <p className="text-xs text-white/50">Owner, The Himalayan Roast</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-[#072d1a] p-8 rounded-[32px] text-left border border-white/10">
+              <div className="flex gap-1 mb-4 text-emerald-400">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                ))}
+              </div>
+              <p className="text-white/90 font-light leading-relaxed mb-6">
+                "I ordered dragon fruit in the morning and it arrived beautifully packaged by the evening. The freshness is exactly as promised. Highly recommended for families."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-serif text-lg">S</div>
+                <div>
+                  <h4 className="text-sm font-semibold tracking-wide">Sneha Thapa</h4>
+                  <p className="text-xs text-white/50">Verified Buyer</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#072d1a] p-8 rounded-[32px] text-left border border-white/10">
+              <div className="flex gap-1 mb-4 text-emerald-400">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                ))}
+              </div>
+              <p className="text-white/90 font-light leading-relaxed mb-6">
+                "As a chef, sourcing authentic organic produce locally is tough. Maa Jalapa changed the game for our seasonal tasting menus. Pure, unadulterated flavor."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-serif text-lg">K</div>
+                <div>
+                  <h4 className="text-sm font-semibold tracking-wide">Kiran Gurung</h4>
+                  <p className="text-xs text-white/50">Executive Chef</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* FAQs */}
-      <section className="py-20 md:py-32 bg-stone-50">
+      <section className="py-24 md:py-32 bg-stone-50 border-t border-stone-200/50">
         <div className="container mx-auto px-6 sm:px-12 lg:px-16 max-w-4xl">
-          <div className="text-center mb-16 space-y-2">
-            <span className="text-[11px] uppercase tracking-widest text-[#0b4228] font-semibold block">
+          <div className="text-center mb-20 space-y-4">
+            <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
               Operations & FAQ
             </span>
             <h2 className="text-5xl md:text-6xl font-serif font-light text-[#112316] tracking-tight">
-            Frequently Asked Questions
-          </h2>
+              Frequently Asked Questions
+            </h2>
           </div>
 
-          <div className="divide-y divide-stone-300/60 border-t border-b border-stone-300/60">
+          <div className="divide-y divide-stone-200 border-t border-b border-stone-200">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
-                <div key={index} className="py-5 transition-all">
+                <div key={index} className="py-6 transition-all">
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     className="w-full flex justify-between items-center text-left cursor-pointer group focus:outline-none bg-transparent"
                   >
-                    <h3 className="text-base font-sans font-medium text-[#0b4228] group-hover:text-stone-600 transition-colors duration-200 pr-4">
+                    <h3 className="text-lg font-sans font-medium text-[#0b4228] group-hover:text-emerald-700 transition-colors duration-200 pr-4">
                       {faq.question}
                     </h3>
-                    <span className="text-xl font-light text-[#0b4228] flex-shrink-0 ml-4 transition-transform duration-300">
-                      {isOpen ? "−" : "+"}
-                    </span>
+                    <div className={`w-8 h-8 rounded-full border flex items-center justify-center flex-shrink-0 ml-4 transition-all duration-300 ${isOpen ? 'border-[#0b4228] bg-[#0b4228] text-white' : 'border-stone-300 text-stone-400 group-hover:border-[#0b4228] group-hover:text-[#0b4228]'}`}>
+                      <span className="text-xl font-light leading-none">
+                        {isOpen ? "−" : "+"}
+                      </span>
+                    </div>
                   </button>
                   
                   <div 
-                    className={`grid transition-all duration-300 ease-in-out text-stone-600 font-light text-sm leading-relaxed tracking-wide ${
-                      isOpen ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
+                    className={`grid transition-all duration-300 ease-in-out text-stone-600 font-light text-base leading-relaxed tracking-wide ${
+                      isOpen ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"
                     }`}
                   >
                     <div className="overflow-hidden">
@@ -294,6 +347,47 @@ export default function HomePage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Feed Grid */}
+      <section className="py-24 bg-white border-t border-stone-200/50">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 text-center">
+          <div className="mb-12 space-y-4">
+            <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
+              Follow the Harvest
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif font-light text-[#112316] tracking-tight">
+              @maajalapafruit
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
+              <Image src="/hero1_img.jpeg" alt="Instagram post" fill sizes="25vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </div>
+            </div>
+            <div className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
+              <Image src="/orange.jpeg" alt="Instagram post" fill sizes="25vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </div>
+            </div>
+            <div className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
+              <Image src="/aboutus.jpg" alt="Instagram post" fill sizes="25vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </div>
+            </div>
+            <div className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
+              <Image src="/mangos.jpg" alt="Instagram post" fill sizes="25vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </div>
+            </div>
           </div>
         </div>
       </section>

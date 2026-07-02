@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   const closeMenu = () => setIsOpen(false);
 
   return (
@@ -38,9 +50,11 @@ export default function Navbar() {
             onClick={closeMenu}
           >
             <div className="relative h-11 w-11 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-              <img
+              <Image
                 src="/logo.png"
                 alt="MAA JALAPA FRUIT"
+                width={44}
+                height={44}
                 className="h-full w-full object-contain"
               />
             </div>
@@ -59,6 +73,12 @@ export default function Navbar() {
             </Link>
             <Link href="/products" className="hover:text-stone-900 transition-colors">
               Products
+            </Link>
+            <Link href="/farms" className="hover:text-stone-900 transition-colors">
+              Our Farms
+            </Link>
+            <Link href="/wholesale" className="hover:text-stone-900 transition-colors">
+              Wholesale
             </Link>
             <Link href="/contact" className="hover:text-stone-900 transition-colors">
               Contact
@@ -122,6 +142,20 @@ export default function Navbar() {
             onClick={closeMenu}
           >
             Products
+          </Link>
+          <Link 
+            href="/farms" 
+            className="hover:text-stone-600 transition-colors" 
+            onClick={closeMenu}
+          >
+            Our Farms
+          </Link>
+          <Link 
+            href="/wholesale" 
+            className="hover:text-stone-600 transition-colors" 
+            onClick={closeMenu}
+          >
+            Wholesale
           </Link>
           <Link 
             href="/contact" 

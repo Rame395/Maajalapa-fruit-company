@@ -1,7 +1,7 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import { Toaster } from "sonner";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -100,7 +100,7 @@ export default function RootLayout({
   };
 
 return (
-    <html lang="en" className="selection:bg-[#0b4228]/10 selection:text-[#0b4228]">
+    <html lang="en" className="selection:bg-[#0b4228]/10 selection:text-[#0b4228] dark:selection:bg-emerald-900/30 dark:selection:text-emerald-400" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -111,12 +111,14 @@ return (
         />
       </head>
       <body 
-        className={`${playfair.variable} ${jakarta.variable} font-sans antialiased min-h-screen bg-[#faf9f5] text-stone-800 subpixel-antialiased`}
+        className={`${playfair.variable} ${jakarta.variable} font-sans antialiased min-h-screen bg-[#faf9f5] dark:bg-[#0a0a0a] text-stone-800 dark:text-stone-100 transition-colors duration-300 subpixel-antialiased`}
         style={{ scrollBehavior: 'auto' }}
         suppressHydrationWarning
       >
-        <Toaster position="bottom-right" />
-        {children}
+        <Providers>
+          <Toaster position="bottom-right" />
+          {children}
+        </Providers>
       </body>
     </html>
   );

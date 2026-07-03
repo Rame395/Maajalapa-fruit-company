@@ -9,7 +9,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#faf6ee] border-t border-stone-200/60 pt-16 pb-8 text-[#0b4228]">
+    <footer className="bg-[#faf6ee] dark:bg-[#0a0a0a] border-t border-stone-200/60 dark:border-white/10 pt-16 pb-8 text-[#0b4228] dark:text-stone-300 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         
         {/* Main Content */}
@@ -18,26 +18,26 @@ export default function Footer() {
           {/* Brand & Contact Info */}
           <div className="lg:col-span-5 space-y-5">
             <div className="flex items-center gap-3">
-              <div className="h-12 w-12 overflow-hidden rounded-full bg-white p-1.5 border border-stone-200">
+              <div className="h-12 w-12 overflow-hidden rounded-full bg-white dark:bg-transparent p-1.5 border border-stone-200 dark:border-stone-800">
                 <Image 
                   src="/logo.png" 
                   alt="MAA JALAPA FRUIT" 
                   width={48}
                   height={48}
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-contain dark:invert"
                 />
               </div>
-              <span className="text-lg font-serif font-medium text-stone-800">
+              <span className="text-lg font-serif font-medium text-stone-800 dark:text-stone-100">
                 MAA JALAPA FRUIT
               </span>
             </div>
             
-            <p className="text-stone-600 text-sm leading-relaxed max-w-sm">
+            <p className="text-stone-600 dark:text-stone-400 text-sm leading-relaxed max-w-sm">
               Delivering fresh, organic fruits across Kathmandu Valley with convenient on-demand service.
             </p>
 
             {/* Contact Information */}
-            <div className="space-y-2 pt-2 text-sm text-stone-600">
+            <div className="space-y-2 pt-2 text-sm text-stone-600 dark:text-stone-400">
               <p className="flex items-center gap-2">
                 <span>📍</span> Budhanilkantha, Kathmandu, Nepal
               </p>
@@ -52,7 +52,7 @@ export default function Footer() {
             
             {/* Quick Links */}
             <div className="space-y-4">
-              <h4 className="text-xs uppercase tracking-wider text-[#0b4228] font-semibold">
+              <h4 className="text-xs uppercase tracking-wider text-[#0b4228] dark:text-emerald-500 font-semibold">
                 Quick Links
               </h4>
               <ul className="space-y-2.5 text-sm text-stone-600">
@@ -79,7 +79,7 @@ export default function Footer() {
 
             {/* Delivery Partners */}
             <div className="space-y-4">
-              <h4 className="text-xs uppercase tracking-wider text-[#0b4228] font-semibold">
+              <h4 className="text-xs uppercase tracking-wider text-[#0b4228] dark:text-emerald-500 font-semibold">
                 Delivery Partners
               </h4>
               <ul className="space-y-2.5 text-sm text-stone-600">
@@ -99,7 +99,7 @@ export default function Footer() {
 
             {/* Order Now */}
             <div className="space-y-4 col-span-2 md:col-span-1">
-              <h4 className="text-xs uppercase tracking-wider text-[#0b4228] font-semibold">
+              <h4 className="text-xs uppercase tracking-wider text-[#0b4228] dark:text-emerald-500 font-semibold">
                 Order Now
               </h4>
               <div className="pt-1">

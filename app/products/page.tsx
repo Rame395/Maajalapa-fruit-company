@@ -106,7 +106,7 @@ export default function ProductsPage() {
                 key={cat}
                 type="button"
                 onClick={() => setActiveFilter(cat)}
-                className={`px-6 py-2.5 text-xs font-medium uppercase tracking-widest rounded-full transition-all duration-300 border focus:outline-none ${
+                className={`px-6 py-2.5 text-xs font-medium uppercase tracking-widest rounded-full transition-all duration-300 border focus:outline-none cursor-pointer ${
                   activeFilter === cat
                     ? "bg-[#0b4228] dark:bg-emerald-800 text-white border-[#0b4228] dark:border-emerald-800 shadow-md"
                     : "bg-transparent text-stone-500 dark:text-stone-400 border-stone-300 dark:border-stone-700 hover:border-stone-500 hover:text-stone-800 dark:hover:text-stone-200"

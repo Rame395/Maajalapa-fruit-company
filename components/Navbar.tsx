@@ -78,18 +78,18 @@ export default function Navbar() {
             {mounted && (
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-full text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-white/10 transition-colors focus:outline-none"
+                className="p-2 rounded-full text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-white/10 transition-colors focus:outline-none cursor-pointer"
                 aria-label="Toggle Dark Mode"
               >
                 {resolvedTheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             )}
 
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden w-10 h-10 flex flex-col justify-center items-center focus:outline-none"
-              aria-label="Toggle menu"
-            >
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="lg:hidden w-10 h-10 flex flex-col justify-center items-center focus:outline-none cursor-pointer"
+                aria-label="Toggle menu"
+              >
               <div className="w-6 h-5 relative flex flex-col justify-between">
                 <span
                   className={`w-full h-0.5 bg-stone-800 dark:bg-stone-200 transition-all duration-300 ${
